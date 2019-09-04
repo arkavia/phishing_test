@@ -1,0 +1,156 @@
+  
+  <!-- MENU -->
+  <header id="header" id="home" style="background-color: #0a0a0a">
+      <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+          <div id="logo">
+            <a href="index.html"><img src="./assets/img/cybersoc.png" height="50" width="200" alt="" title="" /></a>
+          </div>
+          
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li class="menu-active"><a href="https://www.arkavia.com/">Arkavia Networks</a></li>
+              <li class="menu-active"><a href="#form">Formulario de Envío</a></li>
+            </ul>
+          </nav>
+	
+        </div>
+      </div>
+  </header>
+
+<!-- HEADER -->
+<section id="home" class="banner-area relative">	
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div id="main_container" class="row d-flex align-items-center" style="padding: 1em">
+      <div class="banner-content col-lg-12 col-md-12">
+        <h2 class="text-white text-uppercase animated fadeInUp delay-0.5s" style="font-size: 2.8em">
+          Phishing Test
+        </h2><br>
+        <h4 class="text-primary text-uppercase animated fadeInUp delay-0.8s">
+          Proof-of-Concept (PoC)
+        </h4><br>
+        <p class="text-white" style="text-align: justify"><b>DISCLAIMER</b> La siguiente plataforma esta enfocada hacia el phishing ético y solo con fines investigativos. 
+          Arkavia Networks no se hace responsable por el uso indebido de esta herramienta. Antes de utilizar el portal o de modificar el código fuente con otros fines de por medio, 
+          debe estar de acuerdo con estos términos.</p>
+      </div>											
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<section id="content">	
+
+  <div class="mat-app-background">
+
+    <div class="container">
+
+      <!-- ESTADISTICAS -->
+			<section class="counter-area section-gap" id="counter">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 animated fadeIn delay-0.5s">
+              <div class="single-counter">
+                <h1 class="counter primary-text" style="color: #0069D9">{{ visitCounter }}</h1>
+                <p>Visitas al Sitio</p>				
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 animated fadeIn delay-1s">
+              <div class="single-counter">
+                <h1 class="counter">{{ phishingUsers }}</h1>
+                <p>Users Pwned (Phishing)</p>								
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 animated fadeIn delay-2s">
+              <div class="single-counter">
+                <h1 class="counter">{{ macrosUsers }}</h1>
+                <p>Users Pwned (Vector)</p>								
+              </div>
+            </div>												
+          </div>
+        </div>	
+      </section>
+
+      <!-- FORMULARIO -->
+      <section id="form">
+        <div class="row content" style="padding: 1em">
+
+            <div class="col-lg-8 col-md-8 animated fadeIn delay-0.5s">
+              
+              <h3 class="text-primary mb-30">Formulario de Envío</h3>
+
+              <p style="text-align: justify">Ingresa una o más direcciones de correo electrónico separadas por comas, estas deben pertenecer a los siguientes dominios gratuitos: 
+                <strong>gmail, outlook, hotmail y yahoo</strong> cualquier otro dominio <strong>NO</strong> esta permitido. Si requieres de mas información o deseas consultar
+                por otros servicios puedes contactarnos a <strong>csoc@arkavia.com</strong> 
+              </p>
+              
+              <form [formGroup]="sendEmailForm" (ngSubmit)="send(sendEmailForm.value)">
+
+                  <mat-form-field class="example-chip-list emails" >
+                    <span matPrefix>
+                      
+                    </span>
+                    <mat-chip-list #chipList>
+                      <mat-chip *ngFor="let item of toAddresses" [selectable]="selectable"
+                                [removable]="removable" (removed)="remove(item)">
+                        {{ item }}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      
+                      <input autofocus placeholder="Direcciones de Correo (Max. 5)" matInput
+                            formControlName="toAddresses" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                            
+                    </mat-chip-list>
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+          
+                  <div class="mt-10">
+                    <div *ngIf="sendEmailForm.status=='INVALID'; else formNoValid">
+                      <span style="color: #f35b5b">El formulario no puede estar vacio</span>
+                    </div>
+                    <ng-template #formNoValid>
+                      <span style="color: #90ee90"></span>
+                    </ng-template>
+                  </div>
+
+                  <div class="mt-20 animated">
+                      <button type="submit" class="btn btn-primary btn-lg text-uppercase">ENVIAR</button>
+                  </div>
+
+              </form>
+            </div>
+        
+        </div>
+      </section>
+
+    </div>
+    
+  </div>
+</section>
+
+<go-top-button [animate]="true"
+               [speed]="50"
+               [acceleration]="2"
+               [scrollDistance]="300"
+               [styles]="{
+                'border-radius': '20px 20px 20px 20px',
+                'bottom': '10px',
+                'border': '2px solid',
+                'line-height': '20px'
+              }">
+        <span class="lnr lnr-chevron-up"></span>
+</go-top-button>
+
+<!-- FOOTER -->		
+<footer class="footer-area">
+  <div class="container">
+    <div class="row" style="padding: 1em">
+      <div class="col-12 col-4 col-4">
+          <p class="footer-text">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Desarrollado con <i class="fa fa-heart-o" aria-hidden="true"></i> por CSOC
+          </p>								
+      </div>
+    </div>						
+  </div>
+</footer>	

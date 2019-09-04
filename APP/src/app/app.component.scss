@@ -1,0 +1,84 @@
+
+
+.banner-area {
+    min-height: 200px
+}
+
+.banner-area .overlay-bg {
+    background: rgba(4,9,30,0.7) !important
+}
+
+.container {
+    padding-top: 0px;
+    padding-bottom: 30px;
+}
+
+.mat-app-background {
+    background-color: #09112f !important;
+    color: white;
+}
+
+.content {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.section-gap {
+    padding: 0px 0 !important;
+}
+
+.single-counter {
+
+    border-radius: 20px;
+
+    p {
+        font-weight: 500;
+    }
+}
+
+.emails {
+    width: 100%;
+    font-size: 18px;
+    padding-right: 20px;
+}
+
+.quote-left {
+    align-items: flex-start;
+}
+
+.quote-right {
+    align-items: flex-start;
+}
+
+body {
+    background-color: #212529 !important
+}
+
+.cat-area .single-cat {
+    text-align: center;
+    background-color: #22314c;
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    box-shadow: 0 10px 50px 0 rgba(245,63,81,.4);
+
+    p {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+.footer-area {
+    padding-top: 25px;
+}
+
+.button-top {
+    position: fixed;
+    background-color: pink;
+    border-color: green;
+    height: 30px;
+    width: 30px;
+}
