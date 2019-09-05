@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 // EXTRAS
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Chart } from '../models/chart';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -14,11 +13,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PhishingService {
-
-  ip4: any;
   
-  readonly URL_API = 'http://localhost:3000/api';
-  // readonly URL_API = 'https://verify.arkalabs.cl/api';
+  readonly URL_API = 'http://YOUR_API_IP_ADDRESS:YOUR_PORT/api';
 
   // RESPONSE GLOBAL API
   response: any;
@@ -40,9 +36,9 @@ export class PhishingService {
     return this.http.get(`${this.URL_API}`+"/phishing/getPhishingUsers");
   }
 
-  // USUARIOS INFECTADOS POR MACROS
+  // USUARIOS INFECTADOS POR VECTOR
   getMacrosUsers(){
-    return this.http.get(`${this.URL_API}`+"/phishing/getMacrosUsers");
+    return this.http.get(`${this.URL_API}`+"/phishing/getVectorUsers");
   }
   
 }
