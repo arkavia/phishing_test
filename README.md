@@ -28,6 +28,40 @@ Portal Web desarrollado en Angular 7 y API de ExpressJS para la comunidad. El us
     node index.js (API)
     ng serve (Portal Web)
 
+## Configuración
+Para hacer uso de esta herramienta y de la API de consumo debes realizar los siguientes cambios en ambos proyectos:
+
+### Conexión MongoDB (database.js)
+    const mongoose = require('mongoose');
+    // DATABASE
+    const URI = 'mongodb://YOUR_USER:YOUR_PASSWORD@YOUR_IP_ADDRESS:27017/YOUR_DATABASE_NAME';
+    mongoose.connect(URI, { useNewUrlParser: true })
+    	.then(db => console.log('Connected'))
+    	.catch(err => console.error(err));
+   	module.exports = mongoose;
+
+### Ajustes Envió de Correo (phishing.controller.js)
+
+    // INGRESA AQUI TUS CREDENCIALES DE PROVEEDOR DE CORREO
+    let transporter = nodeMailer.createTransport({
+        
+        host: 'YOUR_MAIL_HOST',
+        port: XXX,
+        secure: false,
+        requireTLS: true,
+        auth: {
+            user: 'YOUR_EMAIL_ADDRESS',
+            pass: 'YOUR_PASSWORD'
+        }
+    });
+    
+    // PERSONALIZACIÓN DE PLANTILLA DE PHISHING
+    let  mailOptions  =  { ... }
+
+### Ajuste URL de la API (phishing.controller.js)
+
+    readonly  URL_API  =  'http://YOUR_API_IP_ADDRESS:YOUR_PORT/api';
+
 ## Uso de la API
 
 A continuación, el detalle de las peticiones **GET** y **POST** que contempla la API, por supuesto estas pueden ser modificadas para mejoras u/o otros usos.
@@ -39,4 +73,3 @@ A continuación, el detalle de las peticiones **GET** y **POST** que contempla l
 |`api/phishing/getPhishingUsers`|`GET`|Estadísticas pwnedPhishing|
 |`api/phishing/getVectorUsers`|`GET`|Estadísticas getVectorUsers|
 |`api/phishing/send`|`POST`|Envío de correo(s)|
-
