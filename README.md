@@ -1,4 +1,6 @@
-﻿# Phishing Test
+# Phishing Test
+
+<img src="APP/src/assets/img/capture.png" width="640">
 
 Portal Web desarrollado en Angular 7 y API de ExpressJS para la comunidad. El uso de estas herramientas esta enfocado al Phishing Ético, permitiendo hacer pruebas de este tipo con el fin de enviar un correo electrónico de phishing con una plantilla por defecto, con las siguientes limitaciones:
 
