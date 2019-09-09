@@ -27,6 +27,7 @@
     "core-js": "^2.5.4",
     "ng2-go-top-button": "^8.0.1",
     "rxjs": "~6.3.3",
+    "set-value": "^3.0.1",
     "sweetalert2": "^8.14.0",
     "tslib": "^1.9.0",
     "web-session-counter": "^1.1.0",
